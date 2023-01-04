@@ -1,0 +1,12 @@
+var twoSum = function(nums, target) {
+    let solutionObj = {};
+
+   for(let i = 0; i < nums.length; i++){
+       let compliment = target - nums[i];
+       if(solutionObj[compliment] !== undefined){
+           return [i, solutionObj[compliment]]
+       }
+       solutionObj[nums[i]] = i 
+   }
+    
+};
