@@ -1,0 +1,16 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        buy_pointer = 0 
+        sell_pointer = 1
+        profit = 0
+        max_profit = 0
+
+        while buy_pointer < len(prices) and sell_pointer < len(prices):
+            if prices[sell_pointer] > prices[buy_pointer]:
+                profit = prices[sell_pointer] - prices[buy_pointer]
+            else:
+                buy_pointer = sell_pointer
+            sell_pointer += 1
+            if profit > max_profit:
+                max_profit = profit
+        return max_profit
