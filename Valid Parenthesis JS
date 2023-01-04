@@ -1,0 +1,13 @@
+var isValid = function(s) {
+    const completeSet = {'(':')','{':'}','[':']'}
+    let closingPair = [];
+
+    for(let i = 0; i < s.length; i++){
+        if(completeSet[s[i]]){
+            closingPair.push(completeSet[s[i]])
+        }else{
+            if(s[i] !== closingPair.pop()) return false
+        }
+    }
+    return closingPair.length === 0
+};
