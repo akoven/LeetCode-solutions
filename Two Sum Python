@@ -1,0 +1,9 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+      solution_obj = {}
+        # solution_arr = 
+        for i in range(len(nums)):
+            other_val = target - nums[i]
+            if other_val in solution_obj:
+                return [solution_obj[other_val],i]
+            solution_obj[nums[i]] = i
