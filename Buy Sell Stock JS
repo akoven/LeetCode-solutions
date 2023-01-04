@@ -1,0 +1,20 @@
+var maxProfit = function(prices) {
+    let buyPointer = 0;
+    let sellPointer = 1;
+    let profit = 0;
+    let maxProfit = 0;
+
+    while(buyPointer < prices.length){
+        if(prices[sellPointer] > prices[buyPointer]){
+           profit = prices[sellPointer] - prices[buyPointer]; 
+        }else{
+            buyPointer = sellPointer;
+        };
+        sellPointer++;
+        if(profit > maxProfit){
+            maxProfit = profit
+        }
+
+    };
+    return maxProfit;
+ };
