@@ -1,0 +1,13 @@
+class Solution(object):
+    def isValid(self, s):
+        my_obj = {'(':')','[':']','{':'}'}
+        pattern_arr = []
+
+        for i in range(len(s)):
+            if s[i] in my_obj.keys():
+                pattern_arr.append(my_obj[s[i]])
+            elif not pattern_arr:
+                return False
+            elif pattern_arr and s[i] != pattern_arr.pop():
+                return False
+        return len(pattern_arr) == 0
