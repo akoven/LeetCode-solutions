@@ -1,0 +1,24 @@
+var isPalindrome = function(s) {
+  let newStr = ''; 
+  const letterArr = s.split('');
+  for(let i = 0; i < s.length; i++){
+    //   let validChar = s.charCodeAt(i);
+      if(  letterArr[i] !== ':' && letterArr[i] !== ',' && letterArr[i] !== '!' && letterArr[i] !== ' ' && letterArr[i] !== '.' && letterArr[i] !=='@' && letterArr[i] !== '#' && letterArr[i] !== '$' && letterArr[i] !== '%' && letterArr[i] !== '^' && letterArr[i] !== '&' && letterArr[i] !== '*' && letterArr[i] !== '_' && letterArr[i] !== '-' && letterArr[i] !== '?' && letterArr[i] !== '/' && letterArr[i] !== '|' && letterArr[i] !== '+' && letterArr[i] !== '=' && letterArr[i] !== '[' && letterArr[i] !== ']' && letterArr[i] !== '{' && letterArr[i] !== '}' && letterArr[i] !== '"' && letterArr[i] !== "'" && letterArr[i] !== ';' && letterArr[i] !== ')' && letterArr[i] !== '(' && letterArr[i] !== '`' && letterArr[i] !== '~'){
+      newStr += letterArr[i]
+    }  
+  }
+  newStr = newStr.toLowerCase();
+  return PalindromeFinder(newStr);
+};
+
+
+var PalindromeFinder = function(modifiedStr){
+    let lastIndex = modifiedStr.length - 1;
+    if(modifiedStr.length === 1) return true;
+    for(let i = 0; i < lastIndex/2; i++){
+        let firstLetter = modifiedStr[i];
+        let lastLetter = modifiedStr[lastIndex - i];
+        if(firstLetter !== lastLetter) return false;
+    }
+    return true
+}
