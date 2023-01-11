@@ -1,0 +1,62 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+
+    // let wordSetA = {};
+    // let wordSetB = {};
+    // let s_arr = s.split('')
+    // let t_arr = t.split('')
+    // let count = 0;
+
+    let str_s = s.split('');
+    let str_t = t.split('')
+
+    if(s.length !== t.length){
+        return false
+    };
+
+    if(str_s.sort().join('') === str_t.sort().join('')){
+        return true
+    }
+    return false
+
+
+    // for(let i = 0; i < s.length; i++){
+    //     for(let k = 0; k < s.length; k++){
+    //         if(s[i] === s_arr[k]){
+    //             count += 1
+    //         }
+    //     }
+    //     wordSetA[s[i]] = count
+    //     count = 0;
+    // };
+
+    // for(let j = 0; j < t.length; j++){
+    //     for(let k = 0; k < t.length; k++){
+    //         if(t[j] === t_arr[k]){
+    //             count += 1
+    //         }
+    //     }
+    //     wordSetB[t[j]] = count
+    //     count = 0;
+    // };
+
+    // const arrA = Object.keys(wordSetA)
+    // const arrB = Object.keys(wordSetB)
+    // const sortedArrA = arrA.sort()
+    // const sortedArrB = arrB.sort()
+    
+    // const valA = Object.values(wordSetA)
+    // const valB = Object.values(wordSetB)
+    // const sortedValA = valA.sort()
+    // const sortedValB = valB.sort()
+
+    // return sortedArrA.join('') === sortedArrB.join('') && sortedValA.join('') === sortedValB.join('')
+
+    
+}   
+    
+    
