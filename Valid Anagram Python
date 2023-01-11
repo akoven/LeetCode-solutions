@@ -1,0 +1,25 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        
+        s_obj = {}
+        t_obj = {}
+
+        if len(s) is not len(t):
+            return False
+        
+        if len(s) is not len(t):
+            return False
+
+        for i in range(len(s)):
+            if s[i] in s_obj.keys():
+                s_obj[s[i]] += 1
+            else:
+                s_obj[s[i]] = 1
+
+        for i in range(len(t)):
+            if t[i] in t_obj.keys():
+                t_obj[t[i]] += 1
+            else:
+                t_obj[t[i]] = 1
+
+        return s_obj == t_obj
