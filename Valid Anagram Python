@@ -4,20 +4,15 @@ class Solution(object):
         s_obj = {}
         t_obj = {}
 
-        if len(s) is not len(t):
-            return False
-        
-        if len(s) is not len(t):
+        if len(s) != len(t):
             return False
 
         for i in range(len(s)):
-            if s[i] in s_obj.keys():
+            if s[i] in s_obj:
                 s_obj[s[i]] += 1
             else:
                 s_obj[s[i]] = 1
-
-        for i in range(len(t)):
-            if t[i] in t_obj.keys():
+            if t[i] in t_obj:
                 t_obj[t[i]] += 1
             else:
                 t_obj[t[i]] = 1
