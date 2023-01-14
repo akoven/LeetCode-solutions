@@ -1,0 +1,23 @@
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        wordSet = set(wordDict)
+        memo = {}
+
+        def helper(sub): #sub = sub problem size
+            if sub in memo:
+                return memo[sub]
+            
+            result = []
+            for i in range(len(sub)):
+                prefix = sub[:i+1] 
+                if prefix in wordSet:
+                    if(prefix == sub):
+                        result.append(prefix)
+                    else:
+                        rest_of_words = helper(sub[i+1:])
+                        for phrase in rest_of_words:
+                            result.append(prefix + ' ' + phrase) 
+            memo[sub] = result
+            return memo[sub]
+
+        return helper(s)
