@@ -1,0 +1,37 @@
+class Solution:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+        
+        starter_node = image[sr][sc]
+        self.helper(image,sr,sc,color,starter_node)
+
+        return image
+                
+    def helper(self, image, sr, sc, color, starter_node):
+        if sr < 0 or sr > len(image) - 1 or sc < 0 or sc > len(image[0]) - 1 or image[sr][sc] == color or image[sr][sc] != starter_node:
+            return
+
+        image[sr][sc] = color
+        self.helper(image, sr, sc - 1, color, starter_node)
+        self.helper(image, sr, sc + 1, color, starter_node) 
+        self.helper(image, sr - 1, sc, color, starter_node) 
+        self.helper(image, sr + 1, sc, color, starter_node) 
+
+
+
+        # if image[sr][sc - 1] == starter_node:
+        #     image[sr][sc - 1] = color
+        # if image[sr][sc + 1] == starter_node:
+        #     image[sr][sc + 1] = color 
+        # if image[sr + 1][sc] == starter_node:
+        #     image[sr + 1][sc] = color
+        # if image[sr - 1][sc] == starter_node:
+        #     image[sr - 1][sc] = color
+        # starter_node = color
+
+        # for i in range(0, len(image) - 1):
+        #     for j in range(0, len(image[0]) - 1):
+        #         if image[i][j] == 0 or image[i][j] == starter_node:
+        #             continue
+        #         if image[i+1][j] == color or image[i][j+1] == color:
+        #             image[i][j] = color
+        #             image[i][j+1] = color
