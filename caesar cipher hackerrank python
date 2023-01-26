@@ -1,0 +1,16 @@
+def caesarCipher(s, k):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    all_caps = alphabet.upper()
+    decoded_msg = ''
+    
+    for l in s:
+        letter_idx = alphabet.find(l)
+        if l in alphabet:
+            decoded_msg += alphabet[(letter_idx+k)%26]
+        elif l.isupper():
+            allcaps_idx = all_caps.find(l)
+            decoded_msg += all_caps[(allcaps_idx+k)%26]
+        else:
+            decoded_msg += l
+    return decoded_msg
+            
