@@ -1,9 +1,15 @@
 def reverse_parentheses(s):
-    for i in s:
-        if i == '(':
-            return reverseStr(s[i+1:s.index(')')])
-
-def reverseStr(s):
-    rev_str = ''
-    for i in range(0,len(s),-1):
-        rev_str += i
+    stack = []
+    closers = []
+    for char in s:
+        if len(stack) > 0:
+            if char == ')':
+                parStart = closers.pop()
+                
+                stackEnd = stack[parStart+1:]
+                stack = stack[:parStart] + stackEnd[::-1]
+         if char != ')':
+            stack.append(char)
+            if char == '(':
+                    closers.append(len(stack)-1)
+      return ''.join(stack)
