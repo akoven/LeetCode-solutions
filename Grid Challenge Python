@@ -1,4 +1,4 @@
-
+//brute force method:
 def gridChallenge(grid):
     ordered_grid = []
     
@@ -20,3 +20,4 @@ def gridChallenge(grid):
             else:
                 current_row += 1
     return 'YES'
+//optimized code:
