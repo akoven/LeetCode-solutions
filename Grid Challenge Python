@@ -30,7 +30,7 @@ grid = [list(row) for row in grid]
         grid[i].sort()
         
     for j in range(col):
-        for i in range(1,row):
-            if not grid[i-1][j] <= grid[i][j]:
+        for i in range(row - 1):
+            if not grid[i+1][j] <= grid[i][j]:
                 return 'NO'
     return 'YES' 
