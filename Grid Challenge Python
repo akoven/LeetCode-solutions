@@ -1,0 +1,22 @@
+
+def gridChallenge(grid):
+    ordered_grid = []
+    
+    for line in grid:
+        arr = list(line)
+        for i in range(len(arr)-1):
+            temp = arr[i]
+            if ord(temp) > ord(arr[i+1]):
+                arr[i] = arr[i+1]
+                arr[i+1] = temp
+        ordered_grid.append(arr)
+    
+
+    for j in range(len(ordered_grid[0])):
+        current_row = 0
+        if current_row < len(ordered_grid):
+            if ord(ordered_grid[current_row][j]) > ord(ordered_grid[current_row+1][j]):
+                return 'NO'
+            else:
+                current_row += 1
+    return 'YES'
