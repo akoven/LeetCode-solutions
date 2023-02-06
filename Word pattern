@@ -8,7 +8,7 @@ def word_pattern(pattern, s):
         return False
     
     for i in range(len(word_arr)):
-        p_key,s_key = "pat"+pattern[i],"str"+word_arr[i]
+        p_key,s_key = pattern[i],word_arr[i]
         if s_key not in s_map:
             s_map[s_key] = i
         if p_key not in p_map:
