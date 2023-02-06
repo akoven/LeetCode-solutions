@@ -1,0 +1,9 @@
+def updateTimes(signalOne, signalTwo):
+    signal_length = min(len(signalOne),len(signalTwo))
+    max_signal = 0
+    count = 0
+    for i in range(signal_length):
+        if signalOne[i] == signalTwo[i] and signalOne[i] > max_signal:
+            count += 1
+            max_signal = signalOne[i]
+    return count
