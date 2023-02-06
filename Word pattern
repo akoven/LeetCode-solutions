@@ -1,0 +1,19 @@
+def word_pattern(pattern, s):
+    word_arr = list(s.split(' '))
+    end = len(word_arr) - 1
+    s_map = {}
+    p_map = {}
+    
+    if len(word_arr) != len(pattern):
+        return False
+    
+    for i in range(len(word_arr)):
+        p_key,s_key = "pat"+pattern[i],"str"+word_arr[i]
+        if s_key not in s_map:
+            s_map[s_key] = i
+        if p_key not in p_map:
+            p_map[p_key] = i
+ 
+        if s_map[s_key] != p_map[p_key]:
+            return False 
+    return True
