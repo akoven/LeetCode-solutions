@@ -1,0 +1,15 @@
+def malarkySort(arr):
+  sorted_arr = []
+  arr.sort()
+  
+  l,r = 0,len(arr)-1
+  flip = false
+  
+  while l <= r:
+    if flip:
+      sorted_arr.append(arr[l])
+    else:
+      sorted_arr.append(arr[r])
+      r -= 1
+    flip = not flip
+  return sorted_arr
