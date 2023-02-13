@@ -1,0 +1,10 @@
+def truckTour(petrolpumps):
+    total_litres = 0
+    start_point = 0
+    
+    for i in range(len(petrolpumps)):
+        total_litres += petrolpumps[i][0] - petrolpumps[i][1]
+        if total_litres < 0:
+            start_point = i+1
+            total_litres = 0
+    return start_point
