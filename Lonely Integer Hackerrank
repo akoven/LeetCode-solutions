@@ -1,0 +1,11 @@
+def lonelyinteger(a):
+    num_dict = {}
+    
+    for i in range(len(a)):
+        if a[i] in num_dict:
+            num_dict[a[i]] += 1
+        else:
+            num_dict[a[i]] = 1 
+    for ele in num_dict:
+        if num_dict[ele] == 1:
+            return ele
