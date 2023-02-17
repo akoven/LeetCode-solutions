@@ -6,7 +6,7 @@ class Solution:
             for word in strs:
                 if i == len(word) or word[i] != strs[0][i]:
                     return common_strs
-                print(word,word[i],strs[0][i])
+                #print(word,word[i],strs[0][i])
             common_strs += strs[0][i]
         return common_strs
             
