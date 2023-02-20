@@ -1,0 +1,27 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'isBalanced' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def isBalanced(s):
+    pairObjs = {'(':')','{':'}','[':']'}
+    matchingPairs = []
+
+    for i in range(len(s)):
+        if s[i] in pairObjs:
+            matchingPairs.append(pairObjs[s[i]])
+        elif s[i] != matchingPairs.pop():
+            return 'NO'
+    if len(matchingPairs) == 0:
+        return 'YES'
+       
