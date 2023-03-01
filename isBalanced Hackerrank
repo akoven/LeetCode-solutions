@@ -37,7 +37,7 @@ def isBalanced(s):
             if len(matchingPairs) > 0:
                 if matchingPairs.pop() != char:
                     return 'NO'
-            #if we have nothing but closing brackets or a pair's closing bracket appears first, that's an automatic "no"    
+            #if we have nothing but closing brackets that's an automatic "no"    
             else: 
                 return 'NO'
     if len(matchingPairs) == 0:
