@@ -1,0 +1,15 @@
+#solution is ineffective for larger arrays
+
+def break(k,arr):
+  count = 0
+  arr.sort()
+  
+  for i in range(len(arr) - 1):
+    j = i+1
+    while j < len(arr):
+      if arr[j]-arr[i] == k:
+        count += 1
+      j += 1
+  return count
+  
+  
