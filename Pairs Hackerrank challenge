@@ -13,3 +13,19 @@ def break(k,arr):
   return count
   
   
+#more effective solution
+def pairs(k, arr):
+    count = 0
+    arr.sort()
+    j = 1
+    
+    for i in range(len(arr)):
+        while j < len(arr):
+            if arr[j] - arr[i] == k:
+                count += 1
+                j += 1
+            elif arr[j] - arr[i] > k:
+                break
+            elif arr[j] - arr[i] < k:
+                j += 1
+    return count     
