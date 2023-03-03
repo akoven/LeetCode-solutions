@@ -1,0 +1,13 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+
+        num_obj = {}
+        for i in range(len(nums)):
+            if nums[i] in num_obj:
+                num_obj[nums[i]] += 1
+            else:
+                num_obj[nums[i]] = 1
+        for num in num_obj:
+            if num_obj[num] != 1:
+                return True
+        return False
