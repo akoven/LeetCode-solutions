@@ -1,0 +1,16 @@
+
+new_str = ''
+str_record = []
+
+for i in range(int(input())):
+    split_input = input().split()
+    if split_input[0] == '1':
+        str_record.append(new_str)
+        new_str += split_input[1]
+    elif split_input[0] == '2':
+        str_record.append(new_str)
+        new_str = new_str[:-int(split_input[1])]
+    elif split_input[0] == '3':
+        print(new_str[int(split_input[1])-1])
+    elif split_input[0] == '4':
+        new_str = str_record.pop()
