@@ -12,3 +12,31 @@ class Solution:
                 letter_arr.append(char)
         
         return letter_arr == letter_arr[::-1]
+        
+        
+#solution with pointers
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        alphabet = 'abcdefghijklmnopqrstuvwxyz'
+        upper_alphabet = alphabet.upper()
+        numbers = '0123456789'
+        new_arr = []
+
+        
+        for char in s:
+            if char in alphabet or char in upper_alphabet:
+                new_arr.append(char.lower())
+            if char in numbers:
+                new_arr.append(char) 
+
+        head_pointer = 0
+        end_pointer = len(new_arr)-1
+        midpoint = len(new_arr)/2
+
+        while head_pointer <= midpoint and end_pointer >= midpoint:
+            if new_arr[head_pointer] != new_arr[end_pointer]:
+                return False
+            else:
+                head_pointer += 1
+                end_pointer -= 1
+        return True
