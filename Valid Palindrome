@@ -1,0 +1,14 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        alphabet = 'abcdefghijklmnopqrstuvwxyz'
+        upper_alphabet = 'abcdefghijklmnopqrstuvwxyz'.upper()
+        numbers = '0123456789'
+        letter_arr = []
+
+        for char in s:
+            if char in alphabet or char in upper_alphabet:
+                letter_arr.append(char.lower())
+            if char in numbers:
+                letter_arr.append(char)
+        
+        return letter_arr == letter_arr[::-1]
