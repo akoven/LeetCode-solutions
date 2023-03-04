@@ -31,9 +31,8 @@ class Solution:
 
         head_pointer = 0
         end_pointer = len(new_arr)-1
-        midpoint = len(new_arr)/2
 
-        while head_pointer <= midpoint and end_pointer >= midpoint:
+        while head_pointer < end_pointer:
             if new_arr[head_pointer] != new_arr[end_pointer]:
                 return False
             else:
