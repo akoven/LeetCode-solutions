@@ -1,0 +1,43 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        s_pointer = head
+        f_pointer = head.next
+
+        while f_pointer and f_pointer.next: #1 -> 2 -> 3 -> 4
+            s_pointer = s_pointer.next #s_pointer ends at node 2
+            f_pointer = f_pointer.next.next #f_pointer ends at node 4
+        second_half = s_pointer.next # second_half assigned to node 3
+        prev = s_pointer.next = None # 1 -> 2 -> None    3 -> 4 -> None
+        while second_half:
+            temp = second_half.next # 4 -> None | None
+            print('temp: ',temp)
+            second_half.next = prev # None | 3 -> None
+            print('second_half: ',second_half)
+            prev = second_half # 3 -> None | 4 -> 3 -> None
+            print('prev: ',prev)
+            second_half = temp # 4 -> None | None
+            print('second_half: ',second_half)
+
+        first = head # 1 -> 2 -> None
+        print('1st starter: ',first)
+        second = prev # 4 -> 3 -> None
+        print('2nd starter: ',second)
+        while second:
+            temp1 = first.next
+            print('temp1: ',temp1) # 2 -> None | None
+            temp2 = second.next
+            print('temp2: ',temp2) # 3 -> None | None
+
+            first.next = second # 3 -> None | 3 -> None
+            print('first: ',first)
+
+            second.next = temp1 # 2 -> None | None
+            print('second: ',second)
+            first = temp1 # 1 -> 4 -> 3 -> None | 2 -> 3 -> None
+            second = temp2 # 4 -> 2 -> None | 3 -> None
+        print(head)
