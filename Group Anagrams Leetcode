@@ -1,0 +1,14 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        solution_arr = []
+        lookup_dict = defaultdict(list)
+
+        for word in strs:
+            key = ''.join(sorted(word))
+            lookup_dict[key].append(word)
+        # print(lookup_dict)
+
+        for key in lookup_dict:
+            solution_arr.append(lookup_dict[key])
+
+        return solution_arr
