@@ -1,0 +1,23 @@
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.left = None
+#     self.right = None
+
+def tree_sum(root):
+  startArr = [root];
+  total = 0;
+  
+  if root == None:
+    return 0
+
+  while len(startArr) > 0:
+    currentNode = startArr.pop(0)
+    total += currentNode.val
+    
+    if currentNode.right:
+      startArr.append(currentNode.right)
+    if currentNode.left:
+      startArr.append(currentNode.left)    
+    
+  return total
