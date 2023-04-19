@@ -1,0 +1,26 @@
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const treeIncludes = (root, target) => {
+  const startArr = [root];
+  
+  if(root === null) return false;
+  
+  while(startArr.length > 0){
+    const currentNode = startArr.shift();
+    
+    if(currentNode.val === target) return true
+    if(currentNode.right) startArr.push(currentNode.right);
+    if(currentNode.left) startArr.push(currentNode.left);
+  }
+  return false;
+};
+
+module.exports = {
+  treeIncludes,
+};
