@@ -1,0 +1,30 @@
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const depthFirstValues = (root) => {
+  const resultArr = [];
+  let binaryArr = [root];
+  
+  if(root === null) return [];
+  
+    while(binaryArr.length > 0){
+    const currentNode = binaryArr.pop();
+    resultArr.push(currentNode.val)
+      
+      if(currentNode.right) binaryArr.push(currentNode.right);//since the node is popped off from the back (line 14)
+      //the right node must be pushed first
+      if(currentNode.left) binaryArr.push(currentNode.left);
+    
+  };
+  return resultArr
+  
+}
+
+module.exports = {
+  depthFirstValues,
+};
