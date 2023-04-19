@@ -1,0 +1,43 @@
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const treeSum = (root) => {
+  let total = 0;
+  // let stack = [];
+  let sumArr = [root];
+ 
+//   if(root === null) return total;
+  
+//   while(sumArr.length > 0){
+//     const currentNode = sumArr.shift();
+//     stack.push(currentNode.val);
+    
+//     if(currentNode.right !== null) sumArr.push(currentNode.right);
+//     if(currentNode.left !== null) sumArr.push(currentNode.left);  
+    
+//   }
+
+//   for(num of stack){
+//     total += num
+//   }
+//   return total;
+  if(root === null) return total;
+  
+  while(sumArr.length > 0){
+    const currentNode = sumArr.shift();
+    total += currentNode.val;
+    
+    if(currentNode.right) sumArr.push(currentNode.right);
+    if(currentNode.left) sumArr.push(currentNode.left);
+  };
+  return total;
+};
+
+module.exports = {
+  treeSum,
+};
