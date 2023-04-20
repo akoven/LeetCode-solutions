@@ -1,0 +1,19 @@
+def arrange(sentence):
+    words = sentence.split(' ')
+    newSentence = ''
+    smallestWord = words[0]
+    wordLenDict = {}
+    
+    for word in words:
+        word = word.lower()
+        wordLenDict[word] = len(word)
+        sortedDict = sorted(wordLenDict.items(), key = lambda kv:kv[1])
+    newSentence = sortedDict[0][0].capitalize()
+    
+    for i in range(1,len(sortedDict)):
+        if '.' in sortedDict[i][0]:
+            newWord = sortedDict[i][0].replace('.','')
+            newSentence += ' ' + newWord
+        else:
+            newSentence += ' ' + sortedDict[i][0]
+    return newSentence + '.'
