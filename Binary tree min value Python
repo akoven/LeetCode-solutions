@@ -1,0 +1,24 @@
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.left = None
+#     self.right = None
+
+def tree_min_value(root):
+  
+  min_num = 10**10
+  print(min_num)
+  stack = [root]
+  
+  while len(stack):
+  
+    currentNode = stack.pop(0)
+    if min_num > currentNode.val:
+      min_num = currentNode.val
+      
+    if currentNode.right is not None:
+      stack.append(currentNode.right)
+    if currentNode.left is not None:
+      stack.append(currentNode.left)
+    
+  return min_num
