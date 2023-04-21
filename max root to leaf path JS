@@ -1,0 +1,22 @@
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const maxPathSum = (root) => {
+  
+  let maxSum = -Infinity;
+  const stack = [root];
+
+  if(root === null) return maxSum;  
+  if(root.right === null && root.left === null) return root.val;
+  
+  return root.val + Math.max(maxPathSum(root.right), maxPathSum(root.left));
+};
+
+module.exports = {
+  maxPathSum,
+};
